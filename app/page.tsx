@@ -1,29 +1,18 @@
 import cartData from "../data/cartData.json"
 import Link from "next/link"
 
-interface CartData {
-  cartItems: Array<{
-    product_id: string
-    product_name: string
-    product_price: number
-    quantity: number
-    image: string
-  }>
-  shipping_fee: number
-  discount_applied: number
-}
-
+const data = cartData
 export default function Home() {
 
-  const subtotal = (cartData as CartData).cartItems.reduce(
+  const subtotal = data.cartItems.reduce(
     (acc, item) => acc + item.product_price * item.quantity,
     0
   )
 
   const total =
     subtotal +
-    (cartData as CartData).shipping_fee -
-    (cartData as CartData).discount_applied
+    data.shipping_fee -
+    data.discount_applied
 
   return (
     <div className="max-w-3xl mx-auto p-8">
@@ -32,7 +21,7 @@ export default function Home() {
         Cart Summary
       </h1>
 
-      {(cartData as CartData).cartItems.map(item => (
+      {data.cartItems.map(item => (
         <div
           key={item.product_id}
           className="flex gap-4 border rounded p-4 mb-4"
@@ -53,7 +42,7 @@ export default function Home() {
       <div className="border-t pt-4 mt-6">
 
         <p>Subtotal: ₹{subtotal}</p>
-        <p>Shipping: ₹{(cartData as CartData).shipping_fee}</p>
+        <p>Shipping: ₹{data.shipping_fee}</p>
 
         <p className="font-bold text-lg">
           Total: ₹{total}
