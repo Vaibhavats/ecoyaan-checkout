@@ -88,16 +88,15 @@ useRouter() is used to programmatically navigate between pages.
 
 How to Run Locally
 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/ecoyaan-checkout.git
-cd ecoyaan-checkout
-2. Install dependencies
+https://github.com/Vaibhavats/ecoyaan-checkout
+3. Install dependencies
 npm install
-3. Start the development server
+4. Start the development server
 npm run dev
-4. Open in browser
+5. Open in browser
 http://localhost:3000
 Live Demo
 
 Deployed on Vercel:
 
-https://your-vercel-url.vercel.app
+https://ecoyaan-checkout-one.vercel.app/
